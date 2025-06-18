@@ -108,21 +108,6 @@ parenRight =
                     (lambda (grob stils)
                       (list empty-stencil (second stils))))
 
-% pocoCrescMarkup = \markup \large \italic "poco cresc."
-% pocoCresc =
-%   #(make-music 'CrescendoEvent 'span-direction START 'span-type 'text
-%                'span-text pocoCrescMarkup)
-%   
-% crescWOMarkup = \markup \large \italic \whiteout \pad-markup #0.25 cresc.
-% crescWO =
-%   #(make-music 'CrescendoEvent 'span-direction START 'span-type 'text
-%                'span-text crescWOMarkup)
-%   
-% dimWOMarkup = \markup \large \italic \whiteout \pad-markup #0.25 dim.
-% dimWO = 
-%   #(make-music 'DecrescendoEvent 'span-direction START 'span-type 'text
-%                'span-text dimWOMarkup)
-
 staffUp   = \change Staff = "upper"
 staffDown = \change Staff = "lower"
 
@@ -158,27 +143,7 @@ beamEighthNotes.24 = {
   \set Staff.beatStructure = 4,0
 }
 
-% beamQuarterNotes.44 = {
-%   \set Staff.beamExceptions = #'()
-%   \set Staff.baseMoment = #(ly:make-moment 1/4)
-%   \set Staff.beatStructure = 1,1,1,1
-% }
-
-% beamEighthNotes.38 = {
-%   \set Staff.beamExceptions = #'()
-%   \set Staff.baseMoment = #(ly:make-moment 1/8)
-%   \set Staff.beatStructure = 1,1,1
-% }
-% 
-% revertBeaming = {
-%   \unset Staff.beamExceptions
-%   \unset Staff.baseMoment
-%   \unset Staff.beatStructure
-% }
-
 trillNatural = \markup \teeny \concat { " " \natural }
-% trillFlat = \markup \teeny \concat { " " \flat }
-% 
 trillBelow = \tweak Script.script-priority -100 \etc
 insideSlur = \tweak avoid-slur #'inside \etc
 
@@ -187,17 +152,11 @@ insideSlur = \tweak avoid-slur #'inside \etc
 %
 
 md = \markup \large \italic m.d.
-% ms = \markup \large \italic m.s.
 rit = \markup \large \italic rit.
 stent = \markup \large \italic stent.
 pocoRit = \markup \large \italic "poco rit."
 rall = \markup \large \italic rall.
 aTempo = \markup \large \italic "a tempo"
-% nonLegato = \markup \large \italic "non legato"
-% pocoMenoMosso = 
-%   \markup \large \italic \whiteout \pad-markup #0.25 "poco meno mosso"
-% pesante = \markup \large \italic \whiteout \pad-markup #0.25 pesante
-% sempreF = \markup { \large sempre \dynamic f }
 scherzando = \markup \large\italic scherzando
 sfMarkup = \markup \dynamic sf
 ppMarkup = \markup \dynamic pp
