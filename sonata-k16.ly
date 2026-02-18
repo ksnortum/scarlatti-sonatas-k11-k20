@@ -37,7 +37,6 @@ global = {
 
 rightHand = \relative {
   \global
-  \tempo "Presto" 2 = 100
   \repeat volta 2 {
     bf''2( \tag layout { a4.\prallprall } \tag midi { a4.\prall } bf8 |
     f2~ f4.) f8( |
@@ -491,6 +490,41 @@ dynamics = {
   }
 }
 
+tempi = {
+  \repeat volta 2 {
+    \tempo "Presto" 2 = 100
+    s1 * 56 |
+    
+    \barNumberCheck 57
+    s1 |
+    s4 \tempo 2 = 92 s \tempo 2 = 84 s \tempo 2 = 76 s |
+    s1 |
+  }
+  \repeat volta 2 {
+    \tempo 2 = 100
+    s1 * 5 |
+    
+    \barNumberCheck 65
+    s1 * 40 |
+    
+    \barNumberCheck 105
+    s1 * 6 |
+    \tag layout { s1 * 2 | }
+    \tag midi {
+      \alternative {
+        {
+          s4 \tempo 2 = 92 s \tempo 2 = 84 s \tempo 2 = 76 s |
+          s1 |
+        }
+        {
+          s4 \tempo 2 = 88 s \tempo 2 = 76 s \tempo 2 = 66 s |
+          s1 |
+        }
+      }
+    }
+  }
+}
+
 forceBreaks = {
   % page 1
   s1 * 5 \break
@@ -530,6 +564,7 @@ forceBreaks = {
     \new Staff = "upper" \rightHand
     \new Dynamics \dynamics
     \new Staff = "lower" \leftHand
+    \new Dynamics \tempi
     \new Devnull \forceBreaks
   >>
   \layout {}
@@ -540,8 +575,8 @@ forceBreaks = {
 \score {
   \keepWithTag midi
   \articulate <<
-    \new Staff = "upper" << \rightHand \dynamics >>
-    \new Staff = "lower" << \leftHand \dynamics >>
+    \new Staff = "upper" << \rightHand \tempi \dynamics >>
+    \new Staff = "lower" << \leftHand \tempi \dynamics >>
   >>
   \midi {}
 }
